@@ -14,13 +14,18 @@ public class Enemies : MonoBehaviour
     public GameObject snail;
     public float moveSpeed = 5f;
     
+    
      
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnEnemies());
+        
     }
+
+    
+
     // Update is called once per frame
     void Update()
     {

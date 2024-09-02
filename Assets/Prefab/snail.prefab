@@ -128,6 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snail: {fileID: 8507079206757772155}
   health: 0
+  hit: {fileID: 8300000, guid: 75bdc8fca6143204d8e3100162cb312f, type: 3}
+  dead: {fileID: 8300000, guid: 07ee20aa1811ad141a4bf53e6f0d2758, type: 3}
 --- !u!60 &8561469706308337422
 PolygonCollider2D:
   m_ObjectHideFlags: 0

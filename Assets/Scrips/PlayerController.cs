@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,9 +17,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveDirection;
     public GameObject bullet;
     private bool isPlayerMoving;
-    private bool shooting;
-    private Coroutine iShot;
     private int lives = 3;
+    public int score = 0;
+    public TMP_Text scoreText;
+    public TMP_Text livesText;
+    public AudioClip shooting;
+    public AudioClip lostLife;
 
 
     // Start is called before the first frame update
@@ -27,6 +32,8 @@ public class PlayerController : MonoBehaviour
         playerInput.currentActionMap.Enable();
         move = playerInput.currentActionMap.FindAction("Move");
         shoot = playerInput.currentActionMap.FindAction("Shooting");
+        scoreText.text = "Score:" + score.ToString();
+        livesText.text = "Lives:" + lives.ToString();
         speed = 5;
         isPlayerMoving = false;
         move.started += Move_started;
@@ -76,7 +83,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = move.ReadValue<float>();
         if(lives == 0)
         {
-            DestroyObject(gameObject);
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -84,17 +91,23 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < 10000; i++)
         {
-            //AudioSource.PlayClipAtPoint(playerShoot, transform.position);
+            AudioSource.PlayClipAtPoint(shooting, transform.position);
             Vector2 bulletpos = new Vector2(transform.position.x + .8f, transform.position.y);
-
             Instantiate(bullet, bulletpos, Quaternion.identity);
-            iShot = null;
             yield return new WaitForSeconds(.5f);
         }
         
     }
-    public void losealife()
+    public void LoseALife()
     {
+        AudioSource.PlayClipAtPoint(lostLife, transform.position);
         lives -= 1;
+        livesText.text = "LIves:" + lives.ToString();
+    }
+
+    public void UpdateScore()
+    {
+        score += 100;
+        scoreText.text = "Score:" + score.ToString();
     }
 }
