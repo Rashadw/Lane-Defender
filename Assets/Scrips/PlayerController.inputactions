@@ -11,6 +11,15 @@
                     "id": "ef052418-c64d-4d67-8df2-cca0f6ef6995",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shooting",
+                    "type": "Button",
+                    "id": "1fae0126-b90e-4f0c-85c1-15dba2edf409",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -20,7 +29,7 @@
                     "name": "1D Axis",
                     "id": "29fec7dc-7479-45c9-ad30-56ce273ea86e",
                     "path": "1DAxis",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -48,6 +57,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e70b0e9e-9ff2-477b-99c7-f18e7cf84917",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shooting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
