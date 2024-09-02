@@ -12,7 +12,7 @@ public class Enemies : MonoBehaviour
 {
     Rigidbody2D rb;
     public GameObject snail;
-    public float moveSpeed = 5f;
+    
     
     
      
